@@ -12,7 +12,15 @@ const PATH_SEPARATOR = path.sep;
 const defaultPath = settings.defaultFolder;
 
 const app = express();
-app.use(cors());
+var corsOptions = {
+  origin : "*",
+  methods : 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  preflightContinue:false,
+  optionsSuccessStatus:204,
+  allowedHeaders:"Content-Type,X-Requested-With,authorization,accesstoken,sessionid"
+
+}
+app.use(cors(corsOptions));
 
 app.listen(settings.serverPort, () => {
   console.log('Server running on port ' + settings.serverPort);
