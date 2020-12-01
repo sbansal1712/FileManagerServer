@@ -13,10 +13,11 @@ const defaultPath = settings.defaultFolder;
 
 const app = express();
 var corsOptions = {
-  origin : "https://filemanagerscreen.herokuapp.com/,https://localhost:4200/",
+  origin : ["https://filemanagerscreen.herokuapp.com/","http://localhost:4200/","http://localhost:8080/"],
   methods : 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   preflightContinue:false,
   optionsSuccessStatus:204,
+  credentials: true,
   allowedHeaders:"Content-Type,X-Requested-With,authorization,accesstoken,sessionid"
 
 }
